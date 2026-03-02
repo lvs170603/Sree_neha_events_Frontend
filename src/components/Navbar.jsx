@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CalendarHeart, Menu, X, LayoutDashboard, Home, Phone } from 'lucide-react';
+import { CalendarHeart, Menu, X, LayoutDashboard, Home, Phone, Info } from 'lucide-react';
 import TopBar from './TopBar';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
@@ -44,6 +44,9 @@ const Navbar = () => {
                         <div className="hidden md:flex space-x-8 items-center">
                             <NavLink to="/" current={location.pathname === '/'} icon={<Home size={18} />}>
                                 Home
+                            </NavLink>
+                            <NavLink to="/about" current={location.pathname === '/about'} icon={<Info size={18} />}>
+                                About Us
                             </NavLink>
                             <NavLink to="/admin" current={isAdmin} icon={<LayoutDashboard size={18} />}>
                                 Admin
@@ -89,6 +92,7 @@ const Navbar = () => {
                         >
                             <div className="px-4 pt-4 pb-6 space-y-3">
                                 <MobileNavLink to="/" onClick={() => setIsOpen(false)}>Home</MobileNavLink>
+                                <MobileNavLink to="/about" onClick={() => setIsOpen(false)}>About Us</MobileNavLink>
                                 <MobileNavLink to="/admin" onClick={() => setIsOpen(false)}>Admin Dashboard</MobileNavLink>
                                 {user && (
                                     <button

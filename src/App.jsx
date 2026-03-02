@@ -6,8 +6,9 @@ import BannerCarousel from './components/BannerCarousel';
 import ServiceList from './components/ServiceList';
 import AdminDashboard from './pages/AdminDashboard';
 import Login from './pages/Login';
+import About from './pages/About';
 import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './context/AuthContext'; // Assuming you will update this next
+import { AuthProvider } from './context/AuthContext';
 
 // Wrapper component to use useLocation hook inside Router
 const AnimatedRoutes = () => {
@@ -22,6 +23,7 @@ const AnimatedRoutes = () => {
             <ServiceList />
           </>
         } />
+        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/admin"
@@ -59,7 +61,7 @@ function App() {
                 <div>
                   <h4 className="font-bold text-lg mb-4">Quick Links</h4>
                   <ul className="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" className="hover:text-purple-400 transition-colors">About Us</a></li>
+                    <li><a href="/about" className="hover:text-purple-400 transition-colors">About Us</a></li>
                     <li><a href="#" className="hover:text-purple-400 transition-colors">Services</a></li>
                     <li><a href="#" className="hover:text-purple-400 transition-colors">Contact</a></li>
                   </ul>
